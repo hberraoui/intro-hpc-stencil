@@ -1,0 +1,29 @@
+Runtimes are noted to 3 decimal places
+
+# NO CHANGES
+Runtime with no changes to stencil.c or the Makefile:
+1. 5.904 s	2. 5.919 s	3. 5.903 s	Avg. 5.909 s 
+
+# ITERATION ORDER
+Avg runtime before changing iteration order: 5.909 s
+Runtime after switching from column-major to row-major iteration order
+1. 4.516 s	2. 4.516 s	3. 4.522 s	Avg. 4.518 s
+Improvement: ~1.391 s
+This improves the runtime as the iteration order now matches the memory layout more closely
+
+# COMPILER OPTIMISATION FLAGS
+Avg runtime with no optimisation flags: 4.518 s
+Runtime after adding -O1 flag:
+1. 2.003 s	2. 2.004 s	3. 2.003 s	Avg. 2.003 s
+Improvement from no optimisation flags: ~2.515 s
+
+Runtime after changing -O1 flag to -O2 flag:
+1. 1.999 s	2. 2.000 s	3. 2.002 s 	Avg. 2.000 s 
+Improvement from no optimisation flags: ~2.518 s
+Improvement from -O1 flag: ~0.515 s
+
+Runtime after changing -O2 flag to -O3 flag:
+1. 1.785 s	2. 1.784 s	3. 1.785 s	Avg. 1.785 s
+Improvement from no optimisation flags: ~2.733 s
+Improvement from -O2 flag: ~0.215 s
+
